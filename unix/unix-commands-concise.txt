@@ -1,0 +1,96 @@
+#shows contents of present directory
+
+ls
+ls -l (long list format)
+ls -a (shows hidden files)
+ls -X (alphabetical sort by extension)
+ls -x (alphabetical sort by name)
+ls -S (sort by size, largest first)
+ls -r (reverse order while sort)
+ls -R (recursive listing)
+ls -t (sort by time, newest first)
+ls -1 (list by line)
+
+#install tree
+sudo apt-get install tree 
+sudo apt install tree (this one works too)
+
+#make directory
+mkdir -p (only creates if does not exist already)
+
+#concantenation
+cat -n (display with line numbers)
+cat -s (omits empty repeated lines)
+less (for big files)
+
+#move (does recursively)
+mv [source] [destination]
+mv -i (prompt before overwrite)
+mv -f (no prompt)
+mv -n (no overwrite)
+
+#copy
+cp -r (recursive copy)
+cp -p (preserve ownership)
+
+#head
+head -n 2 [file] (shows the first two lines)
+head -n -2 [file] (shows all except the last two lines)
+tail -n 2 [file] (shows the last two lines)
+tail -n +2 [file] (shows everything from the 2nd line including the 2nd)
+head -c 2 (shows the first two bytes, other options remain the same, just replace n with c) 
+
+Advanced Unix Commands.pdf
+#regex
+[a-zA-Z] (a-z OR A-Z)
+
+#grep - searches for patterns of characters
+refer to grep.pdf
+
+#find - locates files with known pattern
+#wc - count
+
+#paste (merge files)
+paste [file1] [file2] (separated by default delimiter TAB)
+paste -d "," [file1] [file2] (seperated by ,)
+paste -s [file1] [file2] (serial paste, not parallel)
+$ cut -d " " -f 1 state.txt | paste number.txt - (hyphen imp to redirect input to paste. hyphen replaced by output of redirection)
+
+#sort - refer to Advance-unix-slides
+sort -c (checks if there's any disorder in the file and reports back)
+sort -r (reverse order)
+sort -u (sorts and deletes duplicate lines)
+sort -M (sort by month)
+
+#zip
+zip [file.zip] [files]
+zip -d [file.zip] [files] (deletes files from file.zip)
+zip -u (updates files in the archive)
+zip -r [files.zip] [directory-name] (recursive zip)
+zip -e (encrypt zip with a password)
+
+#unzip 
+unzip [zipfile.zip] -d [directory] (unzips to directory)
+
+#tar - refer to advanced-unix-slides
+tar -f (archives in a .tar file instead of stdout, argument after -f is the name of archive)
+tar -tvf file.tar (list the contents of the archive)
+
+#redirection - refer to slides
+
+#search in man page
+man [command] | grep -e '-X' (only returns the line with the keyword '-X')
+man [command] | less +/-X  (returns highlighted occurances of the keyword '-X', navigate using N to go forward, Shift + N to go back)
+
+#echo 
+echo "[text]" > file,txt
+
+
+
+
+
+
+
+
+
+
