@@ -84,6 +84,7 @@ man [command] | less +/-X  (returns highlighted occurances of the keyword '-X', 
 
 #echo 
 echo "[text]" > file,txt
+yelp man:[command] (better man pages)
 
 
 
