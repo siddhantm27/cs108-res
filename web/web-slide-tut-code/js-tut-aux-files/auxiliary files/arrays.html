@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- This tutorial is about iterating on an array of objects, using for loop -->
+</head>
+<body>
+    <h2>Arrays and For Loops</h2>
+    <h3>Table of Students and Grade</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Grade</th>
+        </tr>
+        <tr>
+            <th class="name">John</th>
+            <th class="grade">A</th>
+        </tr>
+        <tr>
+            <th class="name">Jane</th>
+            <th class="grade">B</th>
+        </tr>
+        <tr>
+            <th class="name">Joe</th>
+            <th class="grade">C</th>
+        </tr>
+        <tr>
+            <th class="name">Jack</th>
+            <th class="grade">D</th>
+        </tr>
+    </table>
+    
+    <p id="demo"></p>
+
+    <script>
+        let names = document.getElementsByClassName("name");
+        let students = "";
+        for(let i=0; i<names.length-1; i++){
+            students += names[i].innerHTML + ", ";
+        }
+        students += names[names.length-1].innerHTML;
+        students = "The students are: " + students + ".";
+        document.getElementById("demo").innerHTML = students;
+    </script>
+</body>
+</html>
+

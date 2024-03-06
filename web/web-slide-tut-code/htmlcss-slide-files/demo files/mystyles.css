@@ -1,0 +1,10 @@
+p {
+    font-size: 20px;
+}
+p.que {
+    color: red;
+}
+
+p.ans {
+    color: blue;
+}

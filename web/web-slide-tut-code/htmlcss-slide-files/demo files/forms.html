@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CS108 Forms</title>
+</head>
+<body>
+    <form action="tables.html" method="post">
+        <!-- text input -->
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name">
+        <br><br>
+
+        <!-- radio buttons -->
+        <label>Grad Year</label>
+        <input type="radio" id="2025" name="batch" value="2025">
+        <label for="2025">2025</label>
+        <input type="radio" id="2026" name="batch" value="2026">
+        <label for="2026">2026</label>
+        <input type="radio" id="2027" name="batch" value="2027">
+        <label for="2027">2027</label>
+        <br><br>
+
+        <!-- checkboxes -->
+        <label>Courses you've taken</label>
+        <input type="checkbox" id="cs101" name="cs101" value="cs101">
+        <label for="cs101">CS101</label>
+        <input type="checkbox" id="cs108" name="cs108" value="cs108">
+        <label for="cs108">CS108</label>
+        <input type="checkbox" id="ma106" name="ma106" value="ma106">
+        <label for="ma106">MA106</label>
+        <br><br>
+        
+        <!-- button  -->
+        <label for="clickme">Clickable Button</label>
+        <input type="button" value="Click me" name="clickme" id="clickme">
+        <br><br>
+
+        <!-- submit button  -->
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

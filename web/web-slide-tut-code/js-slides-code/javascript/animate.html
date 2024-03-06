@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Element Animation Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+
+        #animatedElement {
+            width: 50px;
+            height: 50px;
+            background-color: blue;
+            position: relative;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Element Animation Example</h1>
+    
+    <div id="animatedElement"></div>
+
+    <script>
+        // JavaScript code for animating an element
+
+        var animatedElement = document.getElementById("animatedElement");
+        var direction = 1; // 1 for right, -1 for left
+        var speed = 2; // Pixels per frame
+
+        function animate() {
+            // Get the current position of the element
+            var currentPosition = parseInt(animatedElement.style.left) || 0;
+
+            // Update the position based on the direction and speed
+            currentPosition += direction * speed;
+
+            // Change direction when the element reaches the edges
+            if (currentPosition <= 0 || currentPosition >= window.innerWidth - animatedElement.clientWidth) {
+                direction *= -1;
+            }
+
+            // Update the style to move the element
+            animatedElement.style.left = currentPosition + "px";
+
+            // Request the next animation frame
+            requestAnimationFrame(animate);
+        }
+
+        // Start the animation
+        animate();
+    </script>
+
+</body>
+</html>

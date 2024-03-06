@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouseover and Keydown Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        #myElement {
+            width: 200px;
+            height: 100px;
+            background-color: lightblue;
+            margin: 0 auto;
+            line-height: 100px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="myElement">Hover or press a key</div>
+
+    <script>
+        const myElement = document.getElementById("myElement");
+
+        // Mouseover event handler
+        myElement.addEventListener("mouseover", function() {
+            myElement.style.backgroundColor = "lightgreen";
+        });
+
+        // Mouseout event handler
+        myElement.addEventListener("mouseout", function() {
+            myElement.style.backgroundColor = "lightblue";
+        });
+
+        // Keydown event handler
+        document.addEventListener("keydown", function(event) {
+            const key = event.key.toUpperCase();
+            myElement.innerText = `Key pressed: ${key}`;
+        });
+
+        // Keyup event handler
+        document.addEventListener("keyup", function() {
+            myElement.innerText = "Hover or press a key";
+        });
+    </script>
+
+</body>
+</html>

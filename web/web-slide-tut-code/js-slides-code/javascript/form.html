@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Submission with Email Validation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Form Submission with Email Validation</h1>
+    
+    <form id="myForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <span id="emailError" style="color: red;"></span>
+        <br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <p id="message"></p>
+
+    <script>
+        // JavaScript code to handle form submission with email validation
+
+        // Function to validate an email address
+        function isValidEmail(email) {
+            // Simple email validation using a regular expression
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // Function to be executed when the form is submitted
+        function handleSubmit(event) {
+            // Prevent the default form submission behavior
+            event.preventDefault();
+
+            // Get form data
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+
+            // Validate email
+            var emailErrorElement = document.getElementById("emailError");
+            if (!isValidEmail(email)) {
+                emailErrorElement.textContent = "Invalid email address";
+                return; // Stop form submission if email is invalid
+            } else {
+                emailErrorElement.textContent = "";
+            }
+
+            // Display a message with the submitted data
+            var messageElement = document.getElementById("message");
+            messageElement.textContent = "Form submitted! Name: " + name + ", Email: " + email;
+
+            // You can perform additional actions here, such as sending the data to a server using AJAX
+        }
+
+        // Attach an event listener to the form
+        document.getElementById("myForm").addEventListener("submit", handleSubmit);
+    </script>
+
+</body>
+</html>
+

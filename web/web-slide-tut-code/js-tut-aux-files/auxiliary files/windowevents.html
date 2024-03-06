@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- We will discuss event handling for window/document events like load, scroll, resize, unload, beforeunload, etc. -->
+
+</head>
+<body>
+    
+    <h1>Window Events</h1>
+    <p>Scroll down to see the effect of the scroll event.</p>
+    <p>Resize the browser window to see the effect of the resize event.</p>
+    <p>Click on the browser window to see the effect of the click event.</p>
+    <p>Close the browser window to see the effect of the beforeunload event.</p>
+    <p>Refresh the browser window to see the effect of the unload event.</p>
+
+    <script>
+        window.addEventListener("load", function(){
+            alert("The page has loaded.");
+        });
+
+        window.addEventListener("scroll", function(){
+            document.body.style.backgroundColor = "red";
+        });
+
+        window.addEventListener("resize", function(){
+            document.body.style.backgroundColor = "blue";
+        });
+
+        window.addEventListener("click", function(){
+            document.body.style.backgroundColor = "green";
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Modification Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        .highlight {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>DOM Modification Example</h1>
+    
+    <!-- Initial content -->
+    <div id="content">
+        <p>This is a paragraph.</p>
+        <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+        </ul>
+    </div>
+
+    <button onclick="modifyDOM()">Modify DOM</button>
+
+    <script>
+        // JavaScript code for modifying the DOM
+
+        function modifyDOM() {
+            // Add a new paragraph
+            var newParagraph = document.createElement("p");
+            newParagraph.textContent = "This is a new paragraph.";
+            document.getElementById("content").appendChild(newParagraph);
+
+            // Modify an existing element
+            var existingListItem = document.querySelector("#content ul li");
+            existingListItem.textContent = "Updated Item";
+
+            // Add a CSS class to highlight an element
+            var elementToHighlight = document.getElementById("content");
+            elementToHighlight.classList.add("highlight");
+
+            // Remove an element
+            var elementToRemove = document.querySelector("#content ul li:last-child");
+            if (elementToRemove) {
+                elementToRemove.remove();
+            }
+            
+            var nthelement = document.querySelector('#content ul li:nth-child(n)');
+        }
+    </script>
+
+</body>
+</html>

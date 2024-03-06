@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IITB CSE</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+</head>
+<body>
+    <!-- A simple table with four columns - S.No, Roll No., Name, Graduating Year, Research Interests-->
+    <div class="students">
+        <h3>Honorable Students of Computer Science</h3>
+        <table>
+            <tr>
+                <th>S.No</th>
+                <th>Roll No.</th>
+                <th>Name</th>
+                <th>Graduating Year</th>
+                <th>Research Interests</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>210050138</td>
+                <td><a href="https://www.cse.iitb.ac.in/~sachiray/" target="_blank">Sabyasachi Samantaray</a></td>
+                <td>2025</td>
+                <td>Deep Learning, NLP, CV</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>210050061</td>
+                <td><a href="https://www.cse.iitb.ac.in/~guramrit/" target="_blank">Guramrit Singh</a></td>
+                <td>2025</td>
+                <td>Edge Computing, Virtualisation Technologies</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>22b1053</td>
+                <td>Kavya Gupta</td>
+                <td>2026</td>
+                <td>Network Security, Distributed Systems</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>22b1003</td>
+                <td>Saksham Rathi</td>
+                <td>2026</td>
+                <td>Graph Theory, Combinatorics</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Now another div with a simple form asking to add a student to a table. The form asks for
+    Roll No, Name, Graduation Year, Link to website, if present and Research Interests-->
+    <div class="add-student">
+        <h3>Add a new student</h3>
+        <form id="info-form">
+            <label for="rollno">Roll Number:</label>
+            <input type="text" id="rollno" name="rollno" placeholder="Enter Roll Number" required><br><br>
+
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter Name" required><br><br>
+
+            <label for="gradyear">Graduation Year:</label>
+            <select id="gradyear" name="gradyear" size="3" required>
+                <option value="2022">2024</option>
+                <option value="2025">2025</option>
+                <option value="2026">2026</option>
+                <option value="2027">2027</option>
+                <option value="2028">2028</option>
+            </select><br><br>
+
+            <label for="website">Website:</label>
+            <input type="email" id="website" name="website" placeholder="Enter Website"><br><br>
+
+            <label for="research">Research Interests:</label><br>
+            <textarea id="research" name="research" placeholder="Enter Research Interests" style="height:50px" required></textarea><br><br>
+
+            <input type="submit" value="Submit" class="submit">
+        </form>
+
+        <script>
+            function submissionhandler(event) {
+
+                // Disabling the default form submission behavior
+                event.preventDefault();
+
+                // Using the DOM API to add the student to the table
+
+                let rollno = document.getElementById("rollno").value;
+                let name = document.getElementById("name").value;
+                let gradyear = document.getElementById("gradyear").value;
+                let website = document.getElementById("website").value;
+                let research = document.getElementById("research").value;
+
+                // ------ SOLUTION 1: 
+                let table = document.getElementsByTagName("table")[0];
+                let row = table.insertRow(-1);
+                row.insertCell(0).innerHTML = table.rows.length - 1;
+                row.insertCell(1).innerHTML = rollno;
+                if (website == "") {
+                    row.insertCell(2).innerHTML = name;
+                }
+                else row.insertCell(2).innerHTML = `<a href = ${website} target='_blank'>${name}</a>`;
+                row.insertCell(3).innerHTML = gradyear;
+                row.insertCell(4).innerHTML = research;
+
+                // ------ SOLUTION 2:
+                // let row = document.createElement("tr");
+                // let cell1 = document.createElement("td");
+                // all_rows = document.getElementsByTagName("tr")
+                // curr_serial_no = Number(all_rows[all_rows.length-1].getElementsByTagName("td")[0].innerHTML);
+                // cell1.innerHTML = curr_serial_no + 1;
+                // row.appendChild(cell1);
+                // let cell2 = document.createElement("td");
+                // cell2.innerHTML = rollno;
+                // row.appendChild(cell2);
+                // let cell3 = document.createElement("td");
+                // if (website == "") {
+                //     cell3.innerHTML = name;
+                // }
+                // else cell3.innerHTML = `<a href = ${website} target='_blank'>${name}</a>`;
+                // row.appendChild(cell3);
+                // let cell4 = document.createElement("td");
+                // cell4.innerHTML = gradyear;
+                // row.appendChild(cell4);
+                // let cell5 = document.createElement("td");
+                // cell5.innerHTML = research;
+                // row.appendChild(cell5);
+
+                // document.getElementsByTagName("table")[0].appendChild(row);
+
+                // ------ SOLUTION 3:
+                // let row = document.createElement("tr");
+                // if (website == "") {
+                //     row.innerHTML = `<td>${document.getElementsByTagName("tr").length}</td>
+                //                     <td>${rollno}</td>
+                //                     <td>${name}</td>
+                //                     <td>${gradyear}</td>
+                //                     <td>${research}</td>`;
+                // }
+                // else{
+                //     row.innerHTML = `<td>${document.getElementsByTagName("tr").length}</td>
+                //                     <td>${rollno}</td>
+                //                     <td><a href = ${website} target='_blank'>${name}</a></td>
+                //                     <td>${gradyear}</td>
+                //                     <td>${research}</td>`;
+                // }
+                // document.getElementsByTagName("table")[0].appendChild(row);
+
+                // Reset the form
+                document.getElementById("info-form").reset();
+            }   
+
+            document.getElementById("info-form").addEventListener("submit", submissionhandler);
+        </script>
+</body>
+</html>
+
